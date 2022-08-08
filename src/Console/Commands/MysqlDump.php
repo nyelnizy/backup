@@ -219,7 +219,7 @@ class MysqlDump extends Command
         $portArg = !empty($port) ? '-P '.escapeshellarg($port) : '';
         $passwordArg = !empty($password) ? '-p'.escapeshellarg($password) : '';
 
-        $dumpCommand = "{$this->mysqldumpPath} -C -h {$hostname} {$portArg} -u{$username} {$passwordArg} --single-transaction --skip-lock-tables --quick {$databaseArg}";
+        $dumpCommand = "{$this->mysqldumpPath} -C -h {$hostname} {$portArg} -u{$username} {$passwordArg} --no-tablespaces --single-transaction --skip-lock-tables --quick {$databaseArg}";
 
         exec($dumpCommand, $dumpResult, $result);
 
